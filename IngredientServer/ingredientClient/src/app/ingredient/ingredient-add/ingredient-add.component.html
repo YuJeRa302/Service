@@ -1,0 +1,34 @@
+<div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" [formGroup]="AddingredientForm" novalidate>
+  
+          <div class="form-group">
+            <label class="col-md-4">Name</label>
+            <label for="ingredientName"></label><input type="text" class="form-control" id="ingredientName" formControlName="ingredientName" required [(ngModel)]="ingredient.ingredientName" name="ingredientName">
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Article</label>
+            <label for="ingredientArticle"></label><input type="text" class="form-control" id="ingredientArticle" formControlName="ingredientArticle" required [(ngModel)]="ingredient.ingredientArticle" name="ingredientArticle">
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Price</label>
+            <label for="ingredientPrice"></label><input type="text" class="form-control" id="ingredientPrice" formControlName="ingredientPrice" required [(ngModel)]="ingredient.ingredientPrice" name="ingredientPrice">
+          </div>
+          <div *ngIf="AddingredientForm.controls['ingredientPrice'].invalid && (AddingredientForm.controls['ingredientPrice'].dirty || AddingredientForm.controls['ingredientPrice'].touched)" class="alert alert-danger">
+            <div *ngIf="AddingredientForm.controls['ingredientPrice'].errors!.required">
+              Field is required.
+            </div>
+            <div *ngIf="AddingredientForm.controls['ingredientPrice'].errors!.pattern">
+              Money must be a number.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <button type="submit" [disabled]="AddingredientForm.invalid"  class="btn btn-primary">Submit</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+</div>  

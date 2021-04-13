@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <br>
+    <h3>Accounts</h3>
+    <br>
+    <button (click)="save()" class="btn btn-info">Add account</button>
+    <br>
+    <br>
+    <table class="table table-striped table-bordered table-hover ">
+      <thead>
+      <tr>
+        <th class="butMiddle">Number</th>
+        <th class="butMiddle">Money</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let account of accounts">
+        <td class="butMiddle">{{account.accountNumber}}</td>
+        <td class="butMiddle">{{account.accountMoney}}</td>
+        <td class="butMiddle"><button (click)="topUpMoney(account)" routerLinkActive="active" class="btn btn-outline-info">Top up money</button></td>
+        <td class="butMiddle"><button (click)="deleteAccount(account.accountId)" class="btn btn-outline-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

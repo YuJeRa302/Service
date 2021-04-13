@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+      <br>
+      <h3>Store Service</h3>
+      <br>
+      <table class="butMain">
+      <tr>
+        <th><button (click)="AddIngredient(ingredient)" class="btn btn-outline-info" routerLinkActive="active">Add ingredient</button></th>
+        <th><button (click)="ShowCart(ingredient)" class="btn btn-outline-info" routerLinkActive="active">Shop Cart</button></th>
+      </tr>
+    </table>
+      <br>
+      <br>
+      <table class="table table-striped table-bordered table-hover ">
+        <thead>
+        <tr>
+          <th class="butMiddle">ID</th>
+          <th class="butMiddle">Name</th>
+          <th class="butMiddle">Price</th>
+          <th class="butMiddle">Article</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ingredient of ingredients">
+          <td class="butMiddle">{{ingredient.ingredientId}}</td>
+          <td class="butMiddle">{{ingredient.ingredientName}}</td>
+          <td class="butMiddle">{{ingredient.ingredientPrice}}</td>
+          <td class="butMiddle">{{ingredient.ingredientArticle}}</td>
+          <td class="butMiddle"><button (click)="EditIngredient(ingredient)" routerLinkActive="active" class="btn btn-outline-info">Edit</button></td>
+          <td class="butMiddle"><button (click)="deleteIngredient(ingredient.ingredientId)" class="btn btn-outline-danger">Delete</button></td>
+          <td class="butMiddle"><button (click)="addIngredientToCart({ingredientId : ingredient.ingredientId})"
+            class="btn btn-outline-success">Add to cart</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

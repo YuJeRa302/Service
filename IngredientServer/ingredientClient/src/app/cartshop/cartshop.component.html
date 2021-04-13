@@ -1,0 +1,36 @@
+<div class="modal-body">
+  <div class="panel-body">
+    <br>
+    <h3>Cart</h3>
+    <br>
+    <br>
+    <br>
+    <table class="table table-striped table-bordered table-hover ">
+      <thead>
+      <tr>
+        <th class="butMiddle">Name</th>
+        <th class="butMiddle">Cost</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cartItem of cartItems">
+        <td class="butMiddle">{{cartItem.ingredientName}}</td>
+        <td class="butMiddle">{{cartItem.ingredientPrice}}</td>
+        <td class="butMiddle"><button (click)="deleteCartItem(cartItem.id)" class="btn btn-outline-danger">Delete</button></td>
+      </tr>
+      <tr *ngIf="this.cartItems.length != 0">
+        <td class="butMiddle font-weight-bold">Total:</td>
+        <td class="butMiddle font-weight-bold">{{this.totalCost}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <br>
+    <div class="modal-footer">
+      <button  class="btn btn-info mr-auto" [disabled]="cartItems.length == 0" (click)="moveToPayment()">Pay</button>
+      <button  class="btn btn-primary mr-2" (click)="modal.close('Cancel')">Close</button>
+    </div>
+
+  </div>
+</div>
