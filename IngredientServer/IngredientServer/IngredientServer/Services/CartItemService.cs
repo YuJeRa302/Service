@@ -38,14 +38,14 @@ namespace IngredientServer.Services
 
             Ingredient ingredient = _ingredientRepository.FindById(dto.ingredientId);
 
-            modifiedCartItem.ingredient = ingredient;
+            //modifiedCartItem.ingredient = ingredient;
 
             if (id != 0)
             {
                 modifiedCartItem.CartId = id;
-                _cartRepository.FindById(id).ingredient.IngredientId = modifiedCartItem.ingredient.IngredientId;
-                _cartRepository.FindById(id).ingredient.IngredientName = modifiedCartItem.ingredient.IngredientName;
-                _cartRepository.FindById(id).ingredient.IngredientPrice = modifiedCartItem.ingredient.IngredientPrice;
+                //_cartRepository.FindById(id).ingredient.IngredientId = modifiedCartItem.ingredient.IngredientId;
+                _cartRepository.FindById(id).ingredientName = modifiedCartItem.ingredientName;
+                _cartRepository.FindById(id).ingredientPrice = modifiedCartItem.ingredientPrice;
                 _cartRepository.Update(modifiedCartItem);
             }
 

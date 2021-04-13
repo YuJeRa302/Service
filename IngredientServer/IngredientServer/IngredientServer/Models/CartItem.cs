@@ -12,7 +12,10 @@ namespace IngredientServer.Models
         public int CartId { get; set; }
 
         [Required]
-        public Ingredient ingredient { get; set; }
+        public string ingredientName { get; set; }
+
+        [Required]
+        public decimal ingredientPrice { get; set; } = 0;
 
     }
 }

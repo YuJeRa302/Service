@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IngredientServer.Migrations
 {
     [DbContext(typeof(IngredientServerContext))]
-    [Migration("20210413055031_Initial")]
+    [Migration("20210413184340_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,14 @@ namespace IngredientServer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
+                    b.Property<string>("ingredientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ingredientPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CartId");
-
-                    b.HasIndex("IngredientId");
 
                     b.ToTable("CartItem");
                 });
@@ -58,15 +60,6 @@ namespace IngredientServer.Migrations
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredient");
-                });
-
-            modelBuilder.Entity("IngredientServer.Models.CartItem", b =>
-                {
-                    b.HasOne("IngredientServer.Models.Ingredient", "ingredient")
-                        .WithMany()
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

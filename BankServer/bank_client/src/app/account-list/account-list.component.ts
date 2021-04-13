@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BankAccount} from "../bank-account";
 import {AccountService} from "../services/account.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+
 import {AccountEditComponent} from "../account-edit/account-edit.component";
 
 @Component({
@@ -49,8 +50,7 @@ export class AccountListComponent implements OnInit {
         console.log(error)
       });
   }
-
-  topUpMoney(account: BankAccount) {
+  EditAccount(account: BankAccount) {
     const ref = this.modalService.open(AccountEditComponent, { centered: true });
     ref.componentInstance.account = account;
 
@@ -60,5 +60,4 @@ export class AccountListComponent implements OnInit {
       (cancel) => {this.loadAccounts();
       });
   }
-
 }

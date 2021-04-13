@@ -40,12 +40,10 @@ namespace BankServer.Services
             Account account = _mapper.Map<Account>(dto);
             if (id != 0)
             {
-                account.AccountId = id;
-                account.AccountMoney += _accountRepository.FindById(id).AccountMoney;
-                if (account.AccountMoney < 0)
-                {
-                    throw new NotEnoughMoneyException();
-                }
+                 account.AccountId = id;       
+                _accountRepository.FindById(id).AccountNumber = account.AccountNumber;
+                _accountRepository.FindById(id).AccountMoney = account.AccountMoney;
+
                 _accountRepository.Update(account);
             }
             else

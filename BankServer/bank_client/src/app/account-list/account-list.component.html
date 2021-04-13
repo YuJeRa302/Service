@@ -19,7 +19,7 @@
       <tr *ngFor="let account of accounts">
         <td class="butMiddle">{{account.accountNumber}}</td>
         <td class="butMiddle">{{account.accountMoney}}</td>
-        <td class="butMiddle"><button (click)="topUpMoney(account)" routerLinkActive="active" class="btn btn-outline-info">Top up money</button></td>
+        <td class="butMiddle"><button (click)="EditAccount(account)" routerLinkActive="active" class="btn btn-outline-info">Edit</button></td>
         <td class="butMiddle"><button (click)="deleteAccount(account.accountId)" class="btn btn-outline-danger">Delete</button></td>
       </tr>
       </tbody>

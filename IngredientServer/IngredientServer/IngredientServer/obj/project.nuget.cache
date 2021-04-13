@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yuTi/wc4p6Y9mQNIyX1nse7oHOajE/4eZFoZtVpsYEpSgICY1YNt55FHnFTbdrB/+dx0r+WmrtQCptK2IAAXeQ==",
+  "dgSpecHash": "99p+jQ79KrxPKSe63K91fn1v5ZfQMTmjuwa/tmw02NidfVC8Q5gYrIJS+d0LPzvY3ZqoVYWOm8fiozIzjyYs3g==",
   "success": true,
-  "projectFilePath": "D:\\SOA_PRoject\\Service\\IngredientServer\\IngredientServer\\IngredientServer\\IngredientServer.csproj",
+  "projectFilePath": "D:\\SOA_PRoject\\StoreService\\Service\\IngredientServer\\IngredientServer\\IngredientServer\\IngredientServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kripe\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\kripe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

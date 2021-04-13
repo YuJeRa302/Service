@@ -15,6 +15,7 @@ export class AccountEditComponent implements OnInit {
 
   accountForm: FormGroup  = this.fb.group({
     id: [this.account.accountId, Validators.required ],
+    accountNumber: [this.account.accountNumber, Validators.required ],
     accountMoney: [this.account.accountMoney, [Validators.required, Validators.pattern('^[0-9]*[.,]?[0-9]+$')]]
   });
 
@@ -24,20 +25,21 @@ export class AccountEditComponent implements OnInit {
               public modal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    this.getIngredientDetails(this.account.accountId);
+    this.getAccountDetails(this.account.accountId);
   }
 
-  getIngredientDetails(id: number) {
+  getAccountDetails(id: number) {
     this.accountService.getAccount(id).subscribe(
       data => {
         this.account = data;
-        this.account.accountMoney = 0;
       },
       error => console.log(error));
   }
 
   updateAccount() {
+    this.account.accountNumber = String(this.account.accountNumber);
     this.account.accountMoney = Number(this.account.accountMoney);
+
     this.accountService.updateAccount(this.account.accountId, this.account)
       .subscribe(data => {
           this.modal.close('Save');

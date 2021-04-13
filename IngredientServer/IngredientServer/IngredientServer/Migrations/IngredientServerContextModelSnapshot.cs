@@ -25,12 +25,14 @@ namespace IngredientServer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("int");
+                    b.Property<string>("ingredientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ingredientPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CartId");
-
-                    b.HasIndex("IngredientId");
 
                     b.ToTable("CartItem");
                 });
@@ -56,15 +58,6 @@ namespace IngredientServer.Migrations
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredient");
-                });
-
-            modelBuilder.Entity("IngredientServer.Models.CartItem", b =>
-                {
-                    b.HasOne("IngredientServer.Models.Ingredient", "ingredient")
-                        .WithMany()
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
